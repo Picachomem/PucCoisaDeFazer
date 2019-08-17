@@ -21,7 +21,7 @@ class Communication:
     def check_in(array):
         if (erro1.not_null(array) != 0):
             return erro1.not_null(array)
-        
+
         pass
 
 
@@ -45,5 +45,4 @@ class User:
 #obj1 = User("Pedro", 4, ["leite", "feijao"], [1, 2])
 #print(obj1.userName, obj1.memberAmount, obj1.foodArray, obj1.foodAmount)
 #print(Foods.Refrigerante.name)
-
-Communication.check_in([])
+#print(Communication.check_in([None,1]))

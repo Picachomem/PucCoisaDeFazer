@@ -30,20 +30,32 @@ cria_arq(listaTeste)
 cria_arq(listaTeste2)
 '''
 
-def le_arq():
+def ler_arq():
 
-    result = []
+    result = list()
+    currentArray = list()
+    currentLine = ""
+    listComida = list()
 
-    currentArray = []
-    
-    listComida=list()
-    arq=open('ArqListas','r')
-    for linha in arq:
-        listUsuarios=linha.split()
-        if listUsuarios[0] == '~':
-            nome=
-        
-        
+    arq = open("ArqListas", "r")
+    linesAmount = len(arq.readlines())
+    arq.close()
+
+    arq = open("ArqListas", "r")
+    for index in range(linesAmount):
+
+        currentLine = arq.readline()
+
+        if (currentLine[0] == "~"):
+            result.append(currentArray)
+            currentArray.clear()
+            currentArray = list()
+            currentArray.append(currentLine[1:len(currentLine)])
+
+        currentLine = int(arq.readline())
+
+
+
         
 
 
