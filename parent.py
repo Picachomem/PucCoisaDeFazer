@@ -12,6 +12,7 @@ class User:
 
 #    frequency
 
+##  TESTES
 
 obj1 = User("Pedro", 4, ["leite", "feijao"], [1, 2])
 
