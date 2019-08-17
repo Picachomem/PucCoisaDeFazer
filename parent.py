@@ -5,7 +5,8 @@ import enum
 
 ##  TYPEDEFS AND ENUMS  ##
 
-enumerate
+class Foods(enum.Enum):
+
 
 ##  BEGIN MAIN  ##
 
