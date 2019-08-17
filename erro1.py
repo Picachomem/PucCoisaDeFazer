@@ -8,8 +8,4 @@ def not_null(array):
             else:
                 pass
 
-a = None
-#print(not_null(a))
-            
-
-        
+    return 0
