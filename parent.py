@@ -1,6 +1,7 @@
 ##  IMPORTS  ##
 
 import erro1
+import enum
 
 ##  TYPEDEFS AND ENUMS  ##
 
