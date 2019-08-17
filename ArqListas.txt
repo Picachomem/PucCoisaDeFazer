@@ -1,8 +1,8 @@
 ~Daniel Coelho
 4
-Arroz;Feijão;
-7;5;
+Arroz Feijão 
+7 5 
 ~Pedro Antônio Tibau Velozo
 5
-Arroz;Macarrão;Maçã;Uva;Carne;
-3;4;5;6;6;
+Arroz Macarrão Maçã Uva Carne 
+3 4 5 6 6 

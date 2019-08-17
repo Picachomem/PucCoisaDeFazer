@@ -1,8 +1,20 @@
-~Pedro
+~Pedro Tibau Velozo
 5
 leite;feijao
 1;2
-~Miguel
-5
-leite;feijao
-1;2
+~Miguel Araújo
+3
+leite;feijao;macarrão
+1;2;5
+~Coelho Daniel
+1
+tomate;água;maçã
+3;7;9
+~Rafaela 
+10
+banana;uva;leite;feijão;arroz
+1;2;3;4;5
+~Bruna 
+2
+pão;batata
+78;321
