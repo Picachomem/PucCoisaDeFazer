@@ -66,6 +66,7 @@ def ler_arq(nomeArq):
     return result
 
 
+
 print(ler_arq("ArqListas.txt"))
 
         
