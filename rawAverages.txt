@@ -1,0 +1,7 @@
+Refrigerante 10 1.5
+Leite 12 1
+Cerveja 300000 0.6
+Feijao 6 1
+Arroz 8 1
+Farinha 6 1
+Biscoito 1 0.2
