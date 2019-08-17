@@ -23,11 +23,31 @@ def cria_arq(lista):
     
 
     return
-  
+'''
 listaTeste=['Daniel Coelho',4,['Arroz','Feijão'],[7,5]]
 listaTeste2=['Pedro Antônio Tibau Velozo',5,['Arroz','Macarrão','Maçã','Uva','Carne'],[3,4,5,6,6]]
 cria_arq(listaTeste)    
 cria_arq(listaTeste2)
+'''
+
+def le_arq():
+
+    result = []
+
+    currentArray = []
+    
+    listComida=list()
+    arq=open('ArqListas','r')
+    for linha in arq:
+        listUsuarios=linha.split()
+        if listUsuarios[0] == '~':
+            nome=
+        
+        
+        
 
 
-#def le_arq():
+
+
+
+    
