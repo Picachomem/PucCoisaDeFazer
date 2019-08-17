@@ -65,6 +65,24 @@ def ler_arq(nomeArq):
 
     return result
 
+def read_foods():
+
+    listaVazia=list()
+    arq=open('foods.txt','r')
+    linha=arq.readline()
+    while linha != '':
+        listaVazia.append(linha)
+        linha=arq.readline()
+
+    for index in range(len(listaVazia)):
+        if listaVazia[index][-1] == '\n':
+            listaVazia[index] = listaVazia[index][0:-1]
+
+    print(listaVazia)
+    return
+
+read_foods()
+
 
 
 print(ler_arq("ArqListas.txt"))
