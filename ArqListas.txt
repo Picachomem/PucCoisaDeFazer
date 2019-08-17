@@ -1,8 +1,8 @@
 ~Daniel Coelho
 4
-Arroz Feijao
+Arroz Feijao 
 7 5 
 ~Pedro Antonio Tibau Velozo
 5
-Arroz Macarrao Maca Uva Carne
+Arroz Macarrao Maca Uva Carne 
 3 4 5 6 6 

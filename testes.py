@@ -1,11 +1,8 @@
-def cria_arq(lista):
+def escrever_arq(lista):
 
-    arq = open('ArqListas.txt','r')
-    
-    arq=open('ArqListas.txt','a')
+    arq=open('ArqListas.txt', 'a')
 
     arq.seek(0)
-    
 
     arq.write("~")
     arq.write(lista[0])
@@ -20,41 +17,56 @@ def cria_arq(lista):
         arq.write(str(lista[3][index]))
         arq.write(" ")
     arq.write("\n")
-    
 
-    return
-'''
-listaTeste=['Daniel Coelho',4,['Arroz','Feijão'],[7,5]]
-listaTeste2=['Pedro Antônio Tibau Velozo',5,['Arroz','Macarrão','Maçã','Uva','Carne'],[3,4,5,6,6]]
-cria_arq(listaTeste)    
-cria_arq(listaTeste2)
-'''
+    return 0
 
-def ler_arq():
+listaTeste=['Daniel Coelho', 4, ['Arroz','Feijao'], [7,5]]
+listaTeste2=['Pedro Antonio Tibau Velozo', 5, ['Arroz','Macarrao','Maca','Uva','Carne'], [3,4,5,6,6]]
+escrever_arq(listaTeste)
+escrever_arq(listaTeste2)
+
+
+def ler_arq(nomeArq):
 
     result = list()
     currentArray = list()
     currentLine = ""
     listComida = list()
+    auxArray = list()
+    count = 0
 
-    arq = open("ArqListas", "r")
+    arq = open(nomeArq, "r")
     linesAmount = len(arq.readlines())
     arq.close()
 
-    arq = open("ArqListas", "r")
+    arq = open(nomeArq, "r")
     for index in range(linesAmount):
 
+        count += 1
         currentLine = arq.readline()
 
         if (currentLine[0] == "~"):
-            result.append(currentArray)
+            currentArray.append(currentLine[1:len(currentLine) - 1])
+            count = 0
+
+        if (count == 1):
+            currentArray.append(int(currentLine))
+        if (count == 2):
+            currentArray.append(currentLine.split())
+
+        if (count == 3):
+            auxArray.clear()
+            for index2 in range(len(currentLine.split())):
+                auxArray.append(int(currentLine.split()[index2]))
+            currentArray.append(auxArray.copy())
+
+            result.append(currentArray.copy())
             currentArray.clear()
-            currentArray = list()
-            currentArray.append(currentLine[1:len(currentLine)])
 
-        currentLine = int(arq.readline())
+    return result
 
 
+print(ler_arq("ArqListas.txt"))
 
         
 
