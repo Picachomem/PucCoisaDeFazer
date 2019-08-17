@@ -96,6 +96,60 @@ class User:
     pass
 
 
+class AverageCalculator:
+
+    def set_totals(self):
+
+        rawData = Communication.ler_arq("ArqListas.txt")
+        rawFoods = read_foods()
+        rawSums = list()
+        rawPeople = list()
+
+        for index in range(len(rawFoods)):
+
+            rawSums.append(0)
+            rawPeople.append(0)
+
+            for index2 in range(len(rawData)):
+
+                for index3 in range(len(rawData[index2][2])):
+
+                    if (rawData[index2][2][index3] == rawFoods[index]):
+                        rawSums[index] += rawData[index2][3][index3]
+                        rawPeople[index] += 1
+
+        return [rawSums, rawPeople]
+
+    def set_average(self, sumArray, peopleArray):
+
+        result = list()
+
+        for index in range(len(sumArray)):
+            if (peopleArray[index] != 0):
+                result.append(sumArray[index]/peopleArray[index])
+
+        return result
+
+
+
+##  AUXILIARY FUNCTIONS  ##
+
+
+def read_foods():
+
+    listaVazia = list()
+    arq = open('foods.txt', 'r')
+    linha = arq.readline()
+
+    while linha != '':
+        listaVazia.append(linha)
+        linha = arq.readline()
+
+    for index in range(len(listaVazia)):
+        if listaVazia[index][-1] == '\n':
+            listaVazia[index] = listaVazia[index][0:-1]
+
+    return listaVazia
 
 ##  TESTES
 
@@ -107,8 +161,19 @@ class User:
 #print(obj1.userName, obj1.memberAmount, obj1.foodArray, obj1.foodAmount)
 #print(Foods.Refrigerante.name)
 #print(Communication.check_in([None,1]))
+'''
 listaTeste=['Daniel Coelho', 4, ['Arroz','Feijao'], [7,5]]
 listaTeste2=['Pedro Antonio Tibau Velozo', 5, ['Arroz','Macarrao','Maca','Uva','Carne'], [3,4,5,6,6]]
 Communication.escrever_arq(listaTeste)
 Communication.escrever_arq(listaTeste2)
+'''
 print(Communication.ler_arq("ArqListas.txt"))
+
+AverageObj = AverageCalculator()
+
+totals = AverageObj.set_totals()
+
+print(totals[0])
+print(totals[1])
+
+print(AverageObj.set_average(totals[0], totals[1]))

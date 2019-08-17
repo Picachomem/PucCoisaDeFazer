@@ -47,19 +47,20 @@ def le_arq():
 '''
 
 def read_foods():
-    listaVazia=list()
-    arq=open('foods.txt','r')
+
+    listaVazia = list()
+    arq = open('foods.txt', 'r')
     linha=arq.readline()
+
     while linha != '':    
         listaVazia.append(linha)
-        linha=arq.readline()
+        linha = arq.readline()
 
     for index in range(len(listaVazia)):
         if listaVazia[index][-1] == '\n':
             listaVazia[index] = listaVazia[index][0:-1]
-            
-    print(listaVazia)
-    return
+
+    return listaVazia
 
 read_foods()
     
