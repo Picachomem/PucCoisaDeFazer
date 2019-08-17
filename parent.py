@@ -18,7 +18,10 @@ class Foods(enum.Enum):
 ##  SHOULD BE COMPLETELY STATIC  ##
 class Communication:
 
-    def check_in(self, array):
+    def check_in(array):
+        if (erro1.not_null(array) != 0):
+            return erro1.not_null(array)
+        
         pass
 
 
@@ -35,12 +38,12 @@ class User:
 
 ##  TESTES
 
-errArray = [None]
-errArray2 = None
-print(erro1.not_null(None))
-print(erro1.not_null([None]))
-obj1 = User("Pedro", 4, ["leite", "feijao"], [1, 2])
-print(obj1.userName, obj1.memberAmount, obj1.foodArray, obj1.foodAmount)
+#errArray = [None]
+#errArray2 = None
+#print(erro1.not_null(None))
+#print(erro1.not_null([None]))
+#obj1 = User("Pedro", 4, ["leite", "feijao"], [1, 2])
+#print(obj1.userName, obj1.memberAmount, obj1.foodArray, obj1.foodAmount)
+#print(Foods.Refrigerante.name)
 
-print(Foods.Refrigerante.name)
-
+Communication.check_in([])
