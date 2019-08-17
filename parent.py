@@ -5,13 +5,13 @@ import enum
 
 ##  TYPEDEFS AND ENUMS  ##
 
-
+'''
 class Foods(enum.Enum):
 
     Refrigerante = 1
     Cerveja = 2
     Biscoito = 3
-
+'''
 
 ##  BEGIN MAIN  ##
 
@@ -153,20 +153,7 @@ def read_foods():
 
 ##  TESTES
 
-#errArray = [None]
-#errArray2 = None
-#print(erro1.not_null(None))
-#print(erro1.not_null([None]))
-#obj1 = User("Pedro", 4, ["leite", "feijao"], [1, 2])
-#print(obj1.userName, obj1.memberAmount, obj1.foodArray, obj1.foodAmount)
-#print(Foods.Refrigerante.name)
-#print(Communication.check_in([None,1]))
-'''
-listaTeste=['Daniel Coelho', 4, ['Arroz','Feijao'], [7,5]]
-listaTeste2=['Pedro Antonio Tibau Velozo', 5, ['Arroz','Macarrao','Maca','Uva','Carne'], [3,4,5,6,6]]
-Communication.escrever_arq(listaTeste)
-Communication.escrever_arq(listaTeste2)
-'''
+
 print(Communication.ler_arq("ArqListas.txt"))
 
 AverageObj = AverageCalculator()
