@@ -5,7 +5,12 @@ import enum
 
 ##  TYPEDEFS AND ENUMS  ##
 
+
 class Foods(enum.Enum):
+
+    Refrigerante = 1
+    Cerveja = 2
+    Biscoito = 3
 
 
 ##  BEGIN MAIN  ##
@@ -32,9 +37,10 @@ class User:
 
 errArray = [None]
 errArray2 = None
-erro1.not_null(None)
-erro1.not_null([None])
+print(erro1.not_null(None))
+print(erro1.not_null([None]))
 obj1 = User("Pedro", 4, ["leite", "feijao"], [1, 2])
-
 print(obj1.userName, obj1.memberAmount, obj1.foodArray, obj1.foodAmount)
+
+print(Foods.Refrigerante.name)
 

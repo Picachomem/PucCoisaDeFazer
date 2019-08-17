@@ -9,7 +9,7 @@ def not_null(array):
                 pass
 
 a = None
-print(not_null(a))
+#print(not_null(a))
             
 
         
