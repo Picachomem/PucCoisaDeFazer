@@ -1,8 +1,15 @@
 ~Daniel Coelho
-4
+1
 Arroz Feijao 
-7 5 
+7 5
+1 0
 ~Pedro Antonio Tibau Velozo
-5
-Biscoito Leite Farinha Feijao Refrigerante
-3 4 5 6 6
+1
+Biscoito Leite Farinha Feijao Refrigerante Arroz
+3 4 5 6 6 6
+0 0 0 0 1 1
+~Miguel Araujo
+1
+Arroz Feijao
+5 5
+0 0
