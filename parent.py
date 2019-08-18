@@ -95,27 +95,82 @@ class Communication:
 
 class User:
 
-    def __init__(self, userName, memberAmount, foodArray, foodAmount, wasteBoolArray):
-        self.userName = userName
-        self.memberAmount = memberAmount
-        self.foodArray = foodArray
-        self.foodAmount = foodAmount
-        self.wasteBoolArray = wasteBoolArray
+    userName = ""
+    memberAmount = 1
+    foodArray = list()
+    foodAmount = list()
+    wasteBoolArray = list()
 
     def set_subfoods(self, array):
 
         foods = read_foods()
+        subFoods = open("subFoods.txt", "w")
+        subFoods.close()
         subFoods = open("subFoods.txt", "a")
         subFoods.seek(0)
 
         for index in range(len(foods)):
             if array.count(str(index)) > 0:
-               subFoods.write("1 ")
+               subFoods.write("1 \n")
             else:
-                subFoods.write("0 ")
+                subFoods.write("0 \n")
 
         subFoods.close()
 
+    def set_food_array(self):
+
+        listaVazia = list()
+        arq = open('subFoods.txt', 'r')
+        linha = arq.readline()
+        foods = read_foods()
+
+        while linha != '':
+            if (linha[0] == "1"):
+                listaVazia.append(linha)
+            linha = arq.readline()
+
+
+
+        for index in range(len(listaVazia)):
+            if listaVazia[index][0] == "1":
+                listaVazia[index] = foods[index]
+
+        arq.close()
+
+        self.foodArray = listaVazia
+        return listaVazia
+
+    def set_recommendations(self, averageArray):
+
+        result = list()
+        foods = read_foods()
+        wastedFoods = list()
+        position = 0
+        aux = 0
+
+        print(self.foodArray)
+
+        for index in range(len(self.foodAmount)):
+
+            if (self.wasteBoolArray[index] != 0):
+                wastedFoods.append(self.foodArray[index])
+                position = foods.index(self.foodArray[index])
+                if (self.foodAmount[index] >= (2*averageArray[position])):
+                    result.append((averageArray[position] + int(averageArray[position]/5)))
+                elif ((self.foodAmount[index] >= averageArray[position])
+                and(self.foodAmount[index] <= (2*averageArray[position]))):
+                    result.append((averageArray[position] + self.foodAmount[index])/2)
+                elif (self.foodAmount[index] < averageArray[position]):
+                    if (self.foodAmount[index]/4 >= 1):
+                        result.append(self.foodAmount[index] - int(self.foodAmount[index]/4))
+                    else:
+                        result.append(self.foodAmount[index] - 1)
+
+        for index in range(len(result)):
+            result[index] = int(result[index])
+
+        print(wastedFoods)
+        return result
 
     pass
 
@@ -196,27 +251,28 @@ class AverageCalculator:
 class UsrInterface:
 
     def home_screen(self):
-        print("||=====================================||")
-        print("||                                     ||")
-        print("||  (1)Entrar dados                    ||")
-        print("||  (2)Sugestão de compras             ||")
-        print("||                                     ||")
-        print("||=====================================||")
+        print("||=====================================")
+        print("||                           (3)Sair            ")
+        print("||  (1)Entrar dados                    ")
+        print("||  (2)Sugestão de compras             ")
+        print("||           ")
+        print("||                                     ")
+        print("||=====================================")
 
         entryMenu = input()
         if (entryMenu == "1"):
-            print("||=====================================||")
-            print("|| Quais desses produtos voce consome? ||")
-            print("|| (Ex resposta: \"0 3 4 6\", ou \"2\")    ||")
-            print("||                                     ||")
-            print("||   (1)Refrigerante                   ||")
-            print("||   (2)Leite                          ||")
-            print("||   (3)Cerveja                        ||")
-            print("||   (4)Feijao                         ||")
-            print("||   (5)Arroz                          ||")
-            print("||   (6)Farinha                        ||")
-            print("||   (7)Biscoito                       ||")
-            print("||=====================================||")
+            print("||=====================================")
+            print("|| Quais desses produtos voce consome? ")
+            print("|| (Ex resposta: \"0 3 4 6\", ou \"2\")    ")
+            print("||                                     ")
+            print("||   (1)Refrigerante                   ")
+            print("||   (2)Leite                          ")
+            print("||   (3)Cerveja                        ")
+            print("||   (4)Feijao                         ")
+            print("||   (5)Arroz                          ")
+            print("||   (6)Farinha                        ")
+            print("||   (7)Biscoito                       ")
+            print("||=====================================")
             entryMenu = input()
             userFoods = entryMenu.split()
 
@@ -243,59 +299,58 @@ def read_foods():
 
 ##  TESTES
 
+'''
+        if (entryMenu == "2"):
+            print("||=====================================")
+            print("|| Produtos recomendados               ")
+            print("|| (Ex resposta: \"0 3 4 6\", ou \"2\")")
+            print("||                                     ")
+            print("||   (1)<var1>                         ")
+            print("||   (2)<var2>                         ")
+            print("||   (3)<var3>                         ")
+            print("||   (4)<var4>                         ")
+            print("||   (5)<var5>                         ")
+            print("||   (6)<var6>                         ")
+            print("||   (7)<var7>                         ")
+            print("||=====================================")
+            entryMenu = input()
+            userFoods = entryMenu.split()           
 
-#print(Communication.ler_arq("ArqListas.txt"))
+def waste_screen(self):
+    print("||=====================================")
+    print("||   Houve sobra da compra de <var1>?  ")
+    print("||  (1)Sim                             ")
+    print("||  (2)Não                             ")
+    print("||                                     ")
+    print("||=====================================")
+def name_screen(self):
+    print("||=====================================")
+    print("||   Insira seu nome:                  ")
+    print("||   <input()>                         ")
+    print("||                                     ")
+    print("||                                     ")
+    print("||=====================================")
+    
+'''
 
 AverageObj = AverageCalculator()
-UIObj = UsrInterface()
 totals = AverageObj.set_totals()
 wasteTotals = AverageObj.set_waste()
 
+AverageObj.set_waste_average(wasteTotals[0], wasteTotals[1])
+averages = AverageObj.set_average(totals[0], totals[1])
 
-entryMenu = input()
-        if (entryMenu == "2"):
-            print("||=====================================||")
-            print("|| Produtos recomendados               ||")
-            print("|| (Ex resposta: \"0 3 4 6\", ou \"2\")||")
-            print("||                                     ||")
-            print("||   (1)<var1>                         ||")
-            print("||   (2)<var2>                         ||")
-            print("||   (3)<var3>                         ||")
-            print("||   (4)<var4>                         ||")
-            print("||   (5)<var5>                         ||")
-            print("||   (6)<var6>                         ||")
-            print("||   (7)<var7>                         ||")
-            print("||=====================================||")
-            entryMenu = input()
-            userFoods = entryMenu.split()
-def waste_screen(self):
-        print("||=====================================||")
-        print("||   Houve sobra da compra de <var1>?  ||")
-        print("||  (1)Sim                             ||")
-        print("||  (2)Não                             ||")
-        print("||                                     ||")
-        print("||=====================================||")
-def name_screen(self):
-        print("||=====================================||")
-        print("||   Insira seu nome?                  ||")
-        print("||   <input()>                         ||")
-        print("||                                     ||")
-        print("||                                     ||")
-        print("||=====================================||")            
-       
+UIObj = UsrInterface()
 
-'''
-print(totals[0])
-print(totals[1])
-print(AverageObj.set_average(totals[0], totals[1]))
+UserObj = User()
+UserObj.set_subfoods(["1", "3", "4", "6"])
+UserObj.set_food_array()
+UserObj.userName = "bento"
+UserObj.memberAmount = 1
+UserObj.foodAmount = [2, 12, 2, 2]
+UserObj.wasteBoolArray = [0, 1, 0, 1]
+
 print()
-
-print(wasteTotals[0])
-print(wasteTotals[1])
-print(AverageObj.set_waste_average(wasteTotals[0], wasteTotals[1]))
-'''
+print(UserObj.set_recommendations(averages))
 
 #UIObj.home_screen()
-
-UserObjs = User()
-UserObjs.set_subfoods(["1", "3", "4", "6"])
