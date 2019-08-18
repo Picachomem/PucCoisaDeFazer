@@ -251,6 +251,39 @@ UIObj = UsrInterface()
 totals = AverageObj.set_totals()
 wasteTotals = AverageObj.set_waste()
 
+
+entryMenu = input()
+        if (entryMenu == "2"):
+            print("||=====================================||")
+            print("|| Produtos recomendados               ||")
+            print("|| (Ex resposta: \"0 3 4 6\", ou \"2\")||")
+            print("||                                     ||")
+            print("||   (1)<var1>                         ||")
+            print("||   (2)<var2>                         ||")
+            print("||   (3)<var3>                         ||")
+            print("||   (4)<var4>                         ||")
+            print("||   (5)<var5>                         ||")
+            print("||   (6)<var6>                         ||")
+            print("||   (7)<var7>                         ||")
+            print("||=====================================||")
+            entryMenu = input()
+            userFoods = entryMenu.split()
+def waste_screen(self):
+        print("||=====================================||")
+        print("||   Houve sobra da compra de <var1>?  ||")
+        print("||  (1)Sim                             ||")
+        print("||  (2)Não                             ||")
+        print("||                                     ||")
+        print("||=====================================||")
+def name_screen(self):
+        print("||=====================================||")
+        print("||   Insira seu nome?                  ||")
+        print("||   <input()>                         ||")
+        print("||                                     ||")
+        print("||                                     ||")
+        print("||=====================================||")            
+       
+
 '''
 print(totals[0])
 print(totals[1])
